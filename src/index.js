@@ -4,25 +4,38 @@ function displayCity(event) {
   if (cityInput.value) {
     let cityName = cityInput.value;
     let apiKey = "2d6f334a7a1c1ea688260d0e96825495";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
-    axios.get(apiUrl).then(showWeather);
-    h2.innerHTML = cityName;
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
+    // let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&cnt=5&appid=${apiKey}`;
+    axios.get(weatherUrl).then(showWeather);
+    // axios.get(forecastUrl).then(showForecast);
   } else {
     alert("Please enter a city name to see the weather");
   }
 }
 
+// function showForecast(forecast) {
+//   console.log(forecast);
+// }
+
 function showWeather(result) {
+  console.log(result);
   let temperature = Math.round(result.data.main.temp) + "°C";
   let description = result.data.weather[0].main;
   let name = result.data.name;
+  let humidity = "Humidity: " + Math.round(result.data.main.humidity) + "%";
+  let wind = "Wind: " + Math.round(result.data.wind.speed) + " kmph";
   let h1 = document.querySelector("h1");
   let h2 = document.querySelector("h2");
   let h4 = document.querySelector("h4");
   let image = document.querySelector("img");
+  let humid = document.querySelector("#humidity");
+  let windy = document.querySelector("#wind");
   h1.innerHTML = temperature;
   h2.innerHTML = name;
   h4.innerHTML = description;
+  humid.innerHTML = humidity;
+  windy.innerHTML = wind;
+
   if (description == "Clear" && Math.round(result.data.main.temp) >= 19) {
     image.src = "./assets/clear.svg";
   } else {
@@ -119,5 +132,6 @@ let input = document.querySelector("form");
 let cityInput = document.querySelector("#search");
 input.addEventListener("submit", displayCity);
 
+//show current weather//
 let h5 = document.querySelector("h5");
 h5.addEventListener("click", currentWeather);

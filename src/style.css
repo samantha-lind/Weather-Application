@@ -38,8 +38,9 @@ img {
 
 h1 {
   font-size: 50px;
-  margin: 0;
-  padding-top: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 5px;
 }
 
 h2 {
@@ -67,7 +68,13 @@ h5 {
   font-size: 13px;
   font-weight: lighter;
   margin-top: 8px;
-  transition: all 200ms ease-in-out;
+}
+
+h6 {
+  font-size: 15px;
+  font-weight: lighter;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 a {
@@ -124,4 +131,8 @@ a:hover {
   border-width: 1px;
   font-family: "Quicksand", sans-serif;
   outline: none;
+}
+
+#break {
+  padding: 0px 20px;
 }
