@@ -19,11 +19,33 @@ function showWeather(result) {
   let h1 = document.querySelector("h1");
   let h2 = document.querySelector("h2");
   let h4 = document.querySelector("h4");
+  let image = document.querySelector("img");
   h1.innerHTML = temperature;
   h2.innerHTML = name;
   h4.innerHTML = description;
-}
+  if (description == "Clear" && Math.round(result.data.main.temp) >= 19) {
+    image.src = "./assets/clear.svg";
+  } else {
+    if (description == "Clear" && Math.round(result.data.main.temp) < 19) {
+      image.src = "./assets/clearcold.svg";
+    }
+  }
+  if (description == "Clouds") {
+    image.src = "./assets/clouds.svg";
+  } else {
+    if (description == "Rain" || description == "Drizzle") {
+      image.src = "./assets/rain.svg";
+    }
+  }
 
+  if (description == "Snow") {
+    image.src = "./assets/rain.svg";
+  } else {
+    if (description == "Thunderstorm") {
+      img.src = "./assets/storm.svg";
+    }
+  }
+}
 function currentWeather(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);

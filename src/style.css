@@ -31,9 +31,9 @@ footer {
   margin-bottom: 20px;
 }
 img {
-  width: 200px;
-  height: auto;
-  margin-top: 30px;
+  width: 150px;
+  height: 150px;
+  margin-top: 0px;
 }
 
 h1 {
@@ -73,11 +73,18 @@ h5 {
 a {
   text-decoration: none;
   color: #0b0b0c;
-  padding: 0px 5px;
 }
 
 a:hover {
   cursor: pointer;
+  text-decoration: underline;
+}
+
+.current {
+  padding: 0px 5px;
+}
+
+.current:hover {
   font-size: 13.5px;
 }
 
@@ -89,7 +96,7 @@ a:hover {
   grid-row-gap: 0px;
   line-height: 1;
   height: 200px;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-left: 40px;
 }
 
