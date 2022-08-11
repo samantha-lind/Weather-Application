@@ -30,22 +30,40 @@ function showWeather(result) {
       image.src = "./assets/clearcold.svg";
     }
   }
+
   if (description == "Clouds") {
     image.src = "./assets/clouds.svg";
-  } else {
-    if (description == "Rain" || description == "Drizzle") {
-      image.src = "./assets/rain.svg";
-    }
+  }
+
+  if (description == "Rain" || description == "Drizzle") {
+    image.src = "./assets/rain.svg";
   }
 
   if (description == "Snow") {
     image.src = "./assets/rain.svg";
-  } else {
-    if (description == "Thunderstorm") {
-      img.src = "./assets/storm.svg";
-    }
+  }
+
+  if (
+    description == "Thunderstorm" ||
+    description == "Squall" ||
+    description == "Tornado"
+  ) {
+    image.src = "./assets/storm.svg";
+  }
+
+  if (
+    description == "Haze" ||
+    description == "Mist" ||
+    description == "Smoke" ||
+    description == "Dust" ||
+    description == "Fog" ||
+    description == "Sand" ||
+    description == "Ash"
+  ) {
+    image.src = "./assets/haze.svg";
   }
 }
+
 function currentWeather(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
