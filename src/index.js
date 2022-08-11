@@ -13,7 +13,7 @@ function displayCity(event) {
 }
 
 function showWeather(result) {
-  let temperature = Math.round(result.data.main.temp);
+  let temperature = Math.round(result.data.main.temp) + "°C";
   let description = result.data.weather[0].main;
   let name = result.data.name;
   let h1 = document.querySelector("h1");
