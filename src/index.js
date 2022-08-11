@@ -18,8 +18,9 @@ function displayCity(event) {
 // }
 
 function showWeather(result) {
-  console.log(result);
   let temperature = Math.round(result.data.main.temp) + "°C";
+  celciusTemp = Math.round(result.data.main.temp);
+  farenheitTemp = (celciusTemp * 9) / 5 + 32;
   let description = result.data.weather[0].main;
   let name = result.data.name;
   let humidity = "Humidity: " + Math.round(result.data.main.humidity) + "%";
@@ -36,10 +37,10 @@ function showWeather(result) {
   humid.innerHTML = humidity;
   windy.innerHTML = wind;
 
-  if (description == "Clear" && Math.round(result.data.main.temp) >= 19) {
+  if (description == "Clear" && Math.round(celciusTemp) >= 19) {
     image.src = "./assets/clear.svg";
   } else {
-    if (description == "Clear" && Math.round(result.data.main.temp) < 19) {
+    if (description == "Clear" && Math.round(celciusTemp) < 19) {
       image.src = "./assets/clearcold.svg";
     }
   }
@@ -90,6 +91,19 @@ function showPosition(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
+function convertCelcius(event) {
+  event.preventDefault;
+  let celciusConvert = document.querySelector("h1");
+  celciusConvert.innerHTML = celciusTemp + "°C";
+}
+
+function convertFarenheit(event) {
+  event.preventDefault;
+  let farenheitConversion = Math.round((celciusTemp * 9) / 5 + 32) + "°F";
+  let temperatureElement = document.querySelector("h1");
+  temperatureElement.innerHTML = farenheitConversion;
+}
+
 //date and time//
 let now = new Date();
 let day = now.getDay();
@@ -135,3 +149,12 @@ input.addEventListener("submit", displayCity);
 //show current weather//
 let h5 = document.querySelector("h5");
 h5.addEventListener("click", currentWeather);
+
+let celciusButton = document.querySelector("#celcius");
+celciusButton.addEventListener("click", convertCelcius);
+
+let farenheitButton = document.querySelector("#farenheit");
+farenheitButton.addEventListener("click", convertFarenheit);
+
+let celciusTemp = null;
+let farenheitTemp = null;

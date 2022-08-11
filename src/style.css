@@ -6,7 +6,7 @@ body {
 
 main {
   max-width: 400px;
-  max-height: 750px;
+  max-height: 800px;
   display: block;
   margin: 25px auto 20px;
   box-shadow: -6px 3px 10px -1px rgba(0, 0, 0, 0.05);
@@ -38,9 +38,10 @@ img {
 
 h1 {
   font-size: 50px;
-  margin-top: 0px;
+  margin-top: 20px;
   margin-bottom: 0px;
   padding-top: 5px;
+  line-height: 1;
 }
 
 h2 {
@@ -60,14 +61,13 @@ h3 {
 h4 {
   font-size: 16px;
   font-weight: light;
-  margin-top: 0;
-  line-height: 1;
+  margin-top: 20px;
 }
 
 h5 {
   font-size: 13px;
   font-weight: lighter;
-  margin-top: 8px;
+  margin: 0px;
 }
 
 h6 {
@@ -102,9 +102,11 @@ a:hover {
   grid-column-gap: 20px;
   grid-row-gap: 0px;
   line-height: 1;
-  height: 200px;
+  height: 150px;
   margin-top: 20px;
   margin-left: 40px;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
 }
 
 .day {
@@ -121,6 +123,12 @@ a:hover {
   display: grid;
   place-items: center right;
   padding-right: 20px;
+}
+
+.conversion {
+  display: inline;
+  margin-bottom: 50px;
+  margin-top: 0px;
 }
 
 #search {
