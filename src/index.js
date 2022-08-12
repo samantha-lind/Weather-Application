@@ -11,6 +11,13 @@ function displayCity(event) {
   }
 }
 
+function generateForecast(coords) {
+  console.log(coords);
+  let apiKey = "2d6f334a7a1c1ea688260d0e96825495";
+  let forecastUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude=hourly,current,minutely,alerts&appid=${apiKey}&units=metric`;
+  axios.get(forecastUrl).then(displayForecast);
+}
+
 function showWeather(result) {
   let temperature = Math.round(result.data.main.temp) + "°C";
   celciusTemp = Math.round(result.data.main.temp);
@@ -70,46 +77,52 @@ function showWeather(result) {
   ) {
     image.src = "./assets/haze.svg";
   }
+
+  generateForecast(result.data.coord);
 }
 
-function currentWeather(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showPosition);
+// function convertCelcius(event) {
+//   event.preventDefault;
+//   let celciusConvert = document.querySelector("h1");
+//   celciusConvert.innerHTML = celciusTemp + "°C";
+// }
+
+// function convertFarenheit(event) {
+//   event.preventDefault;
+//   let farenheitConversion = Math.round((celciusTemp * 9) / 5 + 32) + "°F";
+//   let temperatureElement = document.querySelector("h1");
+//   temperatureElement.innerHTML = farenheitConversion;
+// }
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
 }
 
-function showPosition(position) {
-  let apiKey = "2d6f334a7a1c1ea688260d0e96825495";
-  let lon = position.coords.longitude;
-  let lat = position.coords.latitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(showWeather);
-}
-
-function convertCelcius(event) {
-  event.preventDefault;
-  let celciusConvert = document.querySelector("h1");
-  celciusConvert.innerHTML = celciusTemp + "°C";
-}
-
-function convertFarenheit(event) {
-  event.preventDefault;
-  let farenheitConversion = Math.round((celciusTemp * 9) / 5 + 32) + "°F";
-  let temperatureElement = document.querySelector("h1");
-  temperatureElement.innerHTML = farenheitConversion;
-}
-
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
-  let days = ["one", "two", "three", "four", "five"];
-  days.forEach(function addDays(day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="forecast-tile">
-            <p class="forecast-weather-day">${day}</p>
-            <img src="./assets/haze.svg" width="50px" height="50px" />
-            <p> <span class="forecast-temperature-max">18</span> / <span class="forecast-temperature-min">11</span></p>
+  let forecast = response.data.daily;
+  forecast.forEach(function addDays(forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="forecast-tile">
+            <p class="forecast-weather-day">${formatDay(forecastDay.dt)}</p>
+            <img src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png"
+            alt="Weather icon"
+            width="60px" />
+            <p> <span class="forecast-temperature-max">${Math.round(
+              forecastDay.temp.max
+            )}°C</span>  <span class="forecast-temperature-min">${Math.round(
+          forecastDay.temp.min
+        )}°C</span></p>
           </div>`;
+    }
   });
   forecastElement.innerHTML = forecastHTML;
 }
@@ -160,13 +173,11 @@ input.addEventListener("submit", displayCity);
 // let h5 = document.querySelector("h5");
 // h5.addEventListener("click", currentWeather);
 
-let celciusButton = document.querySelector("#celcius");
-celciusButton.addEventListener("click", convertCelcius);
+// let celciusButton = document.querySelector("#celcius");
+// celciusButton.addEventListener("click", convertCelcius);
 
-let farenheitButton = document.querySelector("#farenheit");
-farenheitButton.addEventListener("click", convertFarenheit);
+// let farenheitButton = document.querySelector("#farenheit");
+// farenheitButton.addEventListener("click", convertFarenheit);
 
-let celciusTemp = null;
-let farenheitTemp = null;
-
-displayForecast();
+// let celciusTemp = null;
+// let farenheitTemp = null;

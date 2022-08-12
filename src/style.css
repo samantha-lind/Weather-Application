@@ -149,6 +149,17 @@ a:hover {
   font-size: 12px;
 }
 
+.forecast-temperature-max {
+  font-weight: 600;
+  margin: 0 2px;
+}
+
+.forecast-temperature-min {
+  font-weight: 400;
+  color: #979799;
+  margin: 0 2px;
+}
+
 .forecast-tile {
   border-radius: 10px;
   margin-bottom: 10px;
