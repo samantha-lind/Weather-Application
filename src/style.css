@@ -137,7 +137,7 @@ form {
   margin-top: 20px;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 350px) {
   #forecast {
     display: grid;
     grid-template-columns: repeat(3, 80px);
