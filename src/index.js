@@ -1,4 +1,11 @@
 //functions//
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayCity(event) {
   event.preventDefault();
   if (cityInput.value) {
@@ -11,13 +18,6 @@ function displayCity(event) {
   }
 }
 
-function generateForecast(coords) {
-  console.log(coords);
-  let apiKey = "2d6f334a7a1c1ea688260d0e96825495";
-  let forecastUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude=hourly,current,minutely,alerts&appid=${apiKey}&units=metric`;
-  axios.get(forecastUrl).then(displayForecast);
-}
-
 function showWeather(result) {
   let temperature = Math.round(result.data.main.temp) + "°C";
   celciusTemp = Math.round(result.data.main.temp);
@@ -26,14 +26,14 @@ function showWeather(result) {
   let name = result.data.name;
   let humidity = "Humidity: " + Math.round(result.data.main.humidity) + "%";
   let wind = "Wind: " + Math.round(result.data.wind.speed) + " kmph";
+  let h3 = document.querySelector("h3");
   let h1 = document.querySelector("h1");
-  let h2 = document.querySelector("h2");
   let h4 = document.querySelector("h4");
   let image = document.querySelector("img");
   let humid = document.querySelector("#humidity");
   let windy = document.querySelector("#wind");
-  h1.innerHTML = temperature;
-  h2.innerHTML = name;
+  h3.innerHTML = temperature;
+  h1.innerHTML = name;
   h4.innerHTML = description;
   humid.innerHTML = humidity;
   windy.innerHTML = wind;
@@ -81,24 +81,11 @@ function showWeather(result) {
   generateForecast(result.data.coord);
 }
 
-// function convertCelcius(event) {
-//   event.preventDefault;
-//   let celciusConvert = document.querySelector("h1");
-//   celciusConvert.innerHTML = celciusTemp + "°C";
-// }
-
-// function convertFarenheit(event) {
-//   event.preventDefault;
-//   let farenheitConversion = Math.round((celciusTemp * 9) / 5 + 32) + "°F";
-//   let temperatureElement = document.querySelector("h1");
-//   temperatureElement.innerHTML = farenheitConversion;
-// }
-
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  return days[day];
+function generateForecast(coords) {
+  console.log(coords);
+  let apiKey = "2d6f334a7a1c1ea688260d0e96825495";
+  let forecastUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude=hourly,current,minutely,alerts&appid=${apiKey}&units=metric`;
+  axios.get(forecastUrl).then(displayForecast);
 }
 
 function displayForecast(response) {
@@ -127,7 +114,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-//date and time//
+//to show current date and time//
 let now = new Date();
 let day = now.getDay();
 let date = now.getDate();
@@ -160,24 +147,11 @@ let months = [
   "December",
 ];
 
-let currentDate = document.querySelector("h3");
+let currentDate = document.querySelector("h2");
 currentDate.innerHTML = `${days[day]} ${date} ${months[month]} <br> ${hour}:${minute}`;
 
 //search city results//
-let h2 = document.querySelector("h2");
+let h3 = document.querySelector("h3");
 let input = document.querySelector("form");
 let cityInput = document.querySelector("#search");
 input.addEventListener("submit", displayCity);
-
-// //show current weather//
-// let h5 = document.querySelector("h5");
-// h5.addEventListener("click", currentWeather);
-
-// let celciusButton = document.querySelector("#celcius");
-// celciusButton.addEventListener("click", convertCelcius);
-
-// let farenheitButton = document.querySelector("#farenheit");
-// farenheitButton.addEventListener("click", convertFarenheit);
-
-// let celciusTemp = null;
-// let farenheitTemp = null;

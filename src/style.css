@@ -2,6 +2,7 @@ body {
   background-color: #4d4a8f;
   font-family: "Quicksand", sans-serif;
   max-width: 1440px;
+  text-align: center;
 }
 
 main {
@@ -12,55 +13,39 @@ main {
   box-shadow: -6px 3px 10px -1px rgba(0, 0, 0, 0.05);
   line-height: 1.5;
   background: white;
-  text-align: center;
   border-radius: 10px;
 }
 
-ul {
-  list-style: none;
-  font-family: "Niramit", sans-serif;
-}
-
-form {
-  padding-top: 30px;
-}
-
 footer {
-  text-align: center;
-  font-size: 12px;
   margin-bottom: 20px;
   color: white;
 }
 
-footer a {
-  color: white;
-}
 img.main {
   width: 150px;
   height: 150px;
-  margin-top: 5px;
+  padding-top: 30px;
 }
 
 h1 {
-  font-size: 50px;
-  margin: 0px;
-  padding-top: 5px;
-  line-height: 1;
-}
-
-h2 {
   font-size: 24px;
   margin-top: 10px;
   margin-bottom: 0px;
   text-transform: capitalize;
 }
 
-h3 {
+h2 {
   font-size: 15px;
-  color: #979799;
-  font-weight: lighter;
+  font-weight: 400;
   margin-top: 5px;
   margin-bottom: 0px;
+}
+
+h3 {
+  font-size: 50px;
+  margin: 0px;
+  padding-top: 5px;
+  line-height: 1;
 }
 
 h4 {
@@ -71,13 +56,6 @@ h4 {
 }
 
 h5 {
-  font-size: 13px;
-  font-weight: lighter;
-  margin: 0px;
-  color: black;
-}
-
-h6 {
   font-size: 15px;
   font-weight: lighter;
   margin-top: 0;
@@ -90,63 +68,20 @@ p {
 }
 
 a {
-  text-decoration: none;
-  color: black;
+  color: white;
+  transition: all 150ms ease-in-out;
 }
 
 a:hover {
-  cursor: pointer;
-  text-decoration: underline;
+  background-color: #c2ae49;
 }
 
-.current {
-  padding: 0px 5px;
-}
-
-.current:hover {
-  font-size: 13.5px;
-}
-
-#forecast {
-  display: grid;
-  grid-template-columns: repeat(5, 80px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  line-height: 1;
-  height: 150px;
-  margin-top: 40px 5px;
-  padding: 40px 10px 20px;
-}
-
-.day {
-  display: grid;
-  place-items: center left;
-}
-
-.emoji {
-  display: grid;
-  place-items: center left;
-}
-
-.temp {
-  display: grid;
-  place-items: center right;
-  padding-right: 20px;
-}
-
-.conversion {
-  display: inline;
-  margin-top: 0px;
-  font-weight: 800;
-  color: black;
+form {
+  padding-top: 30px;
 }
 
 .forecast-weather-day {
   font-size: 14px;
-}
-
-.forecast-temperature {
-  font-size: 12px;
 }
 
 .forecast-temperature-max {
@@ -166,7 +101,13 @@ a:hover {
 }
 
 .forecast-tile:hover {
-  background-color: #fdf9cf;
+  background-color: #dfcf56;
+}
+
+.background {
+  background-color: #fbf9ea;
+  padding-bottom: 20px;
+  border-radius: 10px 10px 0 0px;
 }
 
 #search {
@@ -181,4 +122,15 @@ a:hover {
 
 #break {
   padding: 0px 10px;
+}
+
+#forecast {
+  display: grid;
+  grid-template-columns: repeat(5, 80px);
+  gap: 0px;
+  height: 150px;
+  padding: 30px 10px 40px;
+  background-color: #fbf9ea;
+  border-radius: 0 0 10px 10px;
+  margin-top: 20px;
 }

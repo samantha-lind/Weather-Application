@@ -19,43 +19,41 @@
   <body>
     <div class="container">
       <main>
-        <form action="">
-          <input
-            type="search"
-            name="search"
-            id="search"
-            placeholder="Please enter city name"
-            autocomplete="off"
-          />
-        </form>
-        <h2>London</h2>
-        <h3>Tuesday 9 August</h3>
+        <div class="background">
+          <form action="">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Please enter city name"
+              autocomplete="off"
+            />
+          </form>
 
-        <img src="./assets/park.svg" id="display-picture" class="main" />
+          <h1>Weather search</h1>
+          <h2></h2>
+        </div>
+        <img src="./assets/weather.svg" id="display-picture" class="main" />
 
-        <h1>10°C</h1>
-        <h4>Sunny</h4>
-        <!-- <span class="conversion">
-          <h5>
-            <span id="celcius"><a href="#">°C</a></span
-            ><span id="break"></span>
-            <span id="farenheit"><a href="#"> °F</a></span>
-          </h5>
-        </span> -->
+        <h3></h3>
+        <h4></h4>
 
-        <h6>
-          <span id="wind">Windspeed</span><span id="break">|</span>
-          <span id="humidity">Humidity</span>
-        </h6>
+        <h5>
+          <span id="wind"></span><span id="break"></span>
+          <span id="humidity"></span>
+        </h5>
+
         <div id="forecast"></div>
       </main>
     </div>
     <footer>
-      An
-      <a href="https://github.com/samantha-lind/Weather-Application" id="git">
-        open-source project</a
-      >
-      coded by Samantha Lind
+      <p>
+        An
+        <a href="https://github.com/samantha-lind/Weather-Application" id="git">
+          open-source project</a
+        >
+        coded by Samantha Lind
+      </p>
     </footer>
     <script src="./src/index.js"></script>
   </body>
