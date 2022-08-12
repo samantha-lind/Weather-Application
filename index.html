@@ -28,52 +28,33 @@
             autocomplete="off"
           />
         </form>
-        <h5>
+        <!-- <h5>
           <a href="#" class="current"
             >I want to see the weather in my current location</a
           >
-        </h5>
+        </h5> -->
+        <h2>London</h2>
+        <h3>Tuesday 9 August</h3>
+
+        <img src="./assets/park.svg" id="display-picture" class="main" />
+
         <h1>10°C</h1>
+        <h4>Sunny</h4>
         <span class="conversion">
           <h5>
-            <span id="celcius"><a href="#">°C</a></span>
+            <span id="celcius"><a href="#">°C</a></span
+            ><span id="break"></span>
             <span id="farenheit"><a href="#"> °F</a></span>
           </h5>
         </span>
-        <h4>Sunny</h4>
 
-        <img src="./assets/park.svg" id="display-picture" />
+        <h6>
+          <span id="wind">Windspeed</span><span id="break">|</span>
+          <span id="humidity">Humidity</span>
+        </h6>
 
-        <div class="summary">
-          <h2>London</h2>
-          <h3>Tuesday 9 August</h3>
-          <h6>
-            <span id="wind">Windspeed</span><span id="break">|</span>
-            <span id="humidity">Humidity</span>
-          </h6>
-        </div>
-
-        <div class="future">
-          <div class="day" id="day-one-name">Monday</div>
-          <div class="temp" id="day-one-temp">20°C</div>
-          <div class="emoji">⛅️</div>
-
-          <div class="day">Tuesday</div>
-          <div class="temp">22°C</div>
-          <div class="emoji">⛅️</div>
-
-          <div class="day">Wednesday</div>
-          <div class="temp">28°C</div>
-          <div class="emoji">☀️</div>
-
-          <div class="day">Thursday</div>
-          <div class="temp">33°C</div>
-          <div class="emoji">☀️</div>
-
-          <div class="day">Friday</div>
-          <div class="temp">27°C</div>
-          <div class="emoji">🌦</div>
-        </div>
+        <div id="forecast"></div>
+        
       </main>
     </div>
     <footer>

@@ -1,11 +1,11 @@
 body {
-  background-color: #d5e1ef;
+  background-color: #4d4a8f;
   font-family: "Quicksand", sans-serif;
   max-width: 1440px;
 }
 
 main {
-  max-width: 400px;
+  max-width: 420px;
   max-height: 800px;
   display: block;
   margin: 25px auto 20px;
@@ -29,17 +29,21 @@ footer {
   text-align: center;
   font-size: 12px;
   margin-bottom: 20px;
+  color: white;
 }
-img {
+
+footer a {
+  color: white;
+}
+img.main {
   width: 150px;
   height: 150px;
-  margin-top: 0px;
+  margin-top: 5px;
 }
 
 h1 {
   font-size: 50px;
-  margin-top: 20px;
-  margin-bottom: 0px;
+  margin: 0px;
   padding-top: 5px;
   line-height: 1;
 }
@@ -56,19 +60,21 @@ h3 {
   color: #979799;
   font-weight: lighter;
   margin-top: 5px;
+  margin-bottom: 0px;
 }
 
 h4 {
   font-size: 16px;
   font-weight: light;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 7px;
 }
 
 h5 {
   font-size: 13px;
   font-weight: lighter;
   margin: 0px;
+  color: black;
 }
 
 h6 {
@@ -76,11 +82,16 @@ h6 {
   font-weight: lighter;
   margin-top: 0;
   margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 12px;
 }
 
 a {
   text-decoration: none;
-  color: #0b0b0c;
+  color: black;
 }
 
 a:hover {
@@ -96,18 +107,15 @@ a:hover {
   font-size: 13.5px;
 }
 
-.future {
+#forecast {
   display: grid;
-  grid-template-columns: repeat(3, 130px);
-  grid-template-rows: repeat(5, 30px);
-  grid-column-gap: 20px;
+  grid-template-columns: repeat(5, 80px);
+  grid-column-gap: 0px;
   grid-row-gap: 0px;
   line-height: 1;
   height: 150px;
-  margin-top: 20px;
-  margin-left: 40px;
-  margin-bottom: 0px;
-  padding-bottom: 10px;
+  margin-top: 40px 5px;
+  padding: 40px 10px 20px;
 }
 
 .day {
@@ -128,8 +136,26 @@ a:hover {
 
 .conversion {
   display: inline;
-  margin-bottom: 50px;
   margin-top: 0px;
+  font-weight: 800;
+  color: black;
+}
+
+.forecast-weather-day {
+  font-size: 14px;
+}
+
+.forecast-temperature {
+  font-size: 12px;
+}
+
+.forecast-tile {
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.forecast-tile:hover {
+  background-color: #fdf9cf;
 }
 
 #search {
@@ -143,5 +169,5 @@ a:hover {
 }
 
 #break {
-  padding: 0px 20px;
+  padding: 0px 10px;
 }
