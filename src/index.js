@@ -98,7 +98,7 @@ function displayForecast(response) {
         forecastHTML +
         `<div class="forecast-tile">
             <p class="forecast-weather-day">${formatDay(forecastDay.dt)}</p>
-            <img src="http://openweathermap.org/img/wn/${
+            <img src="https://openweathermap.org/img/wn/${
               forecastDay.weather[0].icon
             }@2x.png"
             alt="Weather icon"

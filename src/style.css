@@ -81,7 +81,9 @@ form {
 }
 
 .forecast-weather-day {
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
 }
 
 .forecast-temperature-max {
@@ -91,7 +93,7 @@ form {
 
 .forecast-temperature-min {
   font-weight: 400;
-  color: #979799;
+  color: darkslategray;
   margin: 0 2px;
 }
 
